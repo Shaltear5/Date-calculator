@@ -1,0 +1,25 @@
+
+print("Enter 2 separate dates that you would like to know the time period between them")
+date1 = input("Enter the first date(DD/MM/YYYY): ")
+date2 = input("Enter the first date(DD/MM/YYYY): ")
+checkDateInfo = [0, 0, 0]
+checkDateInfo = date1.split('/')
+checkDateInfo2 = date2.split('/')
+
+YYYY = int(checkDateInfo[2]) - int(checkDateInfo2[2])
+if YYYY < 0:
+    YYYY = abs(YYYY)
+
+MM = int(checkDateInfo[1]) - int(checkDateInfo2[1])
+if MM < 0:
+    MM = abs(MM)
+
+DD = int(checkDateInfo[0]) - int(checkDateInfo2[0])
+if DD < 0:
+    DD = abs(DD)
+
+if (checkDateInfo[2] > checkDateInfo2[2] and checkDateInfo[1] < checkDateInfo2[1]) or (checkDateInfo[2] < checkDateInfo2[2] and checkDateInfo[1] > checkDateInfo2[1]):
+    YYYY = YYYY-1
+    MM = 12-MM
+
+print("The time period between the entered dates is "+str(YYYY)+" years, "+str(MM)+" months, "+str(DD)+" days.")
